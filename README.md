@@ -11,4 +11,4 @@
 
 4. Position yourself inside directory and run : npm install i npm dedupe
 	
-5. For running application type in: npm run4201
+5. For running application type in: npm run start4201
