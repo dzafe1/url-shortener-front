@@ -1,14 +1,6 @@
 {
-    "/erp-auth/*": {
-        "target": "http://localhost:8086/",
-        "secure": false
-    },
-    "/codebooks/*": {
-        "target": "http://localhost:8087/",
-        "secure": false
-    },
-    "/mlm/*": {
-        "target": "http://localhost:8088/",
+    "/api/*": {
+        "target": "http://localhost:8080/",
         "secure": false
     }
 }

@@ -1,1 +1,66 @@
-<router-outlet></router-outlet>
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="intro-message">
+        <h1>Short Url Service</h1>
+        <h3>A web service for shortening urls</h3>
+        <hr class="intro-divider">
+        <ul class="list-inline intro-social-buttons">
+          <li>
+            <a href="https://github.com/dzafe1" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span
+              class="network-name">Github</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-5">
+        <div class="form-group">
+          <label for="url">Type in url to receive short one:</label>
+          <input [(ngModel)]="url" type="text" class="form-control" id="url" [maxlength]="3000"
+                 placeholder="Up to 3000 characters. All above will be ignored.">
+        </div>
+        <button class="btn btn-success" type="button" (click)="createShortUrl()">Get Url</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-3 col-lg-4">
+        <div *ngIf="shortUrl.length>0">
+          <h3>
+            <a href="{{shortUrl}}" target="_blank">{{shortUrl}}</a>
+          </h3>
+          <button (click)="copyToClipboard(shortUrl)">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <h2 >Generate short URL by yourself!</h2>
+    <div class="col-lg-offset-3 col-lg-5">
+      <div class="form-group">
+        <label for="fullUrl">Type in full url:</label>
+        <input [(ngModel)]="fullCustomUrl" type="text" class="form-control" id="fullUrl">
+      </div>
+      <div class="form-group">
+        <label for="shortCustomUrl">Type in word up to 6 characters (example: jobs):</label>
+        <input [(ngModel)]="shortCustomUrl" [maxlength]="6" [value]="" type="text" class="form-control" id="shortCustomUrl">
+      </div>
+      <button class="btn btn-success" type="button" (click)="createCustomUrl()">Generate custom url</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-offset-3 col-lg-4">
+      <div *ngIf="shortCustomProcesedUrl.length>0">
+        <h3>
+            <a href="{{shortCustomProcesedUrl}}" target="_blank">{{shortCustomProcesedUrl}}</a>
+        </h3>
+        <button (click)="copyToClipboard(shortCustomProcesedUrl)">Copy</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /.container -->
+
+<!---->

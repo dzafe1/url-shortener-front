@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import {forkJoin} from 'rxjs';
+import {Observable} from 'rxjs';
 import {UrlModel} from './url.model';
 
 const httpOptions = {
@@ -8,14 +8,16 @@ const httpOptions = {
 };
 
 @Injectable()
-export class MainService {
+export class UrlService {
 
   constructor(private http: HttpClient) {
   }
 
-  processFullUrl(urlModel: UrlModel) {
-    return forkJoin(
-      this.http.post('/api/url', urlModel)
-    );
+  processFullUrl(urlModel: any): Observable<UrlModel> {
+    return this.http.post<UrlModel>('/api/url', urlModel, httpOptions);
   }
- }
+
+  processCustomUrl(urlModel: any): Observable<UrlModel> {
+    return this.http.post<UrlModel>('/api/custom-url', urlModel, httpOptions);
+  }
+}
